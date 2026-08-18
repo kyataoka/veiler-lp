@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ page.title }} — Veiler</title>
-<meta name="description" content="{{ page.title }}（Veiler）">
+<meta name="description" content="{{ page.title }} — Veiler">
 <style>
   /* No external resources: these pages are read by App Review and by people
      on a phone, and both should get the whole document from one request. */
@@ -56,7 +56,14 @@
   hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
   table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
   th, td { border: 1px solid var(--rule); padding: 0.5em 0.7em; text-align: left; }
-  .home { display: block; margin-bottom: 2rem; font-size: 0.9rem; color: var(--muted); }
+  .bar {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+  }
+  .bar a { color: var(--muted); }
   footer {
     margin-top: 4rem;
     padding-top: 1.5rem;
@@ -68,11 +75,15 @@
 </head>
 <body>
 <main>
-  <a class="home" href="{{ '/' | relative_url }}">← Veiler</a>
+  <nav class="bar">
+    <a href="{{ '/' | relative_url }}">← Veiler</a>
+    {% if page.alt_url %}<a href="{{ page.alt_url | relative_url }}">{{ page.alt_label }}</a>{% endif %}
+  </nav>
   {{ content }}
   <footer>
     <p>Veiler — Hiroki Kataoka<br>
-    お問い合わせ: <a href="mailto:kyataoka.deve@gmail.com">kyataoka.deve@gmail.com</a></p>
+    {% if page.lang == 'en' %}Contact{% else %}お問い合わせ{% endif %}:
+    <a href="mailto:kyataoka.deve@gmail.com">kyataoka.deve@gmail.com</a></p>
   </footer>
 </main>
 </body>

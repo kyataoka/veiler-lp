@@ -3,8 +3,12 @@
 Veiler のプライバシーポリシーと利用規約。**ここが唯一の原本**で、
 GitHub Pages がそのまま公開している。
 
-- プライバシーポリシー: https://kyataoka.github.io/veiler-legal/privacy/ja/
-- 利用規約: https://kyataoka.github.io/veiler-legal/terms/ja/
+- プライバシーポリシー: [日本語](https://kyataoka.github.io/veiler-legal/privacy/ja/) / [English](https://kyataoka.github.io/veiler-legal/privacy/en/)
+- 利用規約: [日本語](https://kyataoka.github.io/veiler-legal/terms/ja/) / [English](https://kyataoka.github.io/veiler-legal/terms/en/)
+
+**日本語が原本**で、英語は便宜的な訳。食い違ったときは日本語が優先すると
+各文書の冒頭に書いてある。日本語を直したら英語も直すこと — 訳が古いのは、
+訳が無いより悪い。
 
 以前は Google Sites に手で貼っていた。掲載物とリポジトリが3回ズレて、
 そのうち1回は「広告 SDK を一切組み込んでいません」と書いたまま広告付きで

@@ -2,6 +2,8 @@
 title: プライバシーポリシー
 permalink: /privacy/ja/
 lang: ja
+alt_url: /privacy/en/
+alt_label: English
 ---
 
 # Veiler プライバシーポリシー

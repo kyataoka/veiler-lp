@@ -40,6 +40,7 @@ The free plan displays advertising in the App. How information is handled in con
 6. **Refunds**: payment is processed by Apple. Whether a refund is available, and the procedure for it, follow **Apple's policies** and are handled through Apple. As a rule, we have no authority over refunds.
 7. **Price changes**: we may change prices in the future. Price changes for existing subscriptions follow the procedures Apple sets, including advance notice and consent where required.
 8. **Free trial**: the monthly Veiler Pro subscription may include a 7-day free trial for first-time subscribers. Unless cancelled at least 24 hours before the trial ends, it converts automatically into a paid subscription and the fee is charged. Nothing is charged if you cancel during the trial. Whether a trial is offered, and on what terms, may change without notice.
+9. **After Veiler Pro ends**: when a subscription ends and the device holds more than one vault, you choose the one vault to keep using on the free plan. The vaults you do not choose can only be exported in full, deleted, or locked. Their contents are kept intact unless you delete them, and returning to Veiler Pro makes them fully usable again.
 
 ## 4. Prohibited conduct
 

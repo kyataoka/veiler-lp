@@ -73,7 +73,7 @@ Nothing from inside a vault is ever sent — no file names, no album names, no c
 
 ### 2.5 Feedback submissions
 
-When you write in through the App's feedback screen, what is sent is the text you wrote plus the app version, iOS version and device model — nothing else. Because nothing identifies you, we cannot reply. Submissions are stored in Google Cloud Firestore (Google LLC, USA).
+When you write in through the App's feedback screen, what is sent is the kind you picked (bug, request or other), the text you wrote, plus the app version, iOS version and device model — nothing else. Because nothing identifies you, we cannot reply. Submissions are stored in Google Cloud Firestore (Google LLC, USA).
 
 ## 3. Why we use it
 

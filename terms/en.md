@@ -9,7 +9,7 @@ alt_label: 日本語
 # Veiler Terms of Service
 
 **Effective: 16 August 2026**
-**Last revised: 19 August 2026**
+**Last revised: 21 August 2026**
 
 These Terms of Service (the "Terms") set out the conditions for using the iOS application "Veiler" (the "App") provided by Hiroki Kataoka ("we", "us"). You are asked to agree to these Terms when you first launch the App. If you do not agree, you cannot use the App.
 
@@ -39,6 +39,7 @@ The free plan displays advertising in the App. How information is handled in con
 5. **Restoring purchases**: when you change device or reinstall, the App's "Restore purchases" feature restores purchases made with the same Apple ID.
 6. **Refunds**: payment is processed by Apple. Whether a refund is available, and the procedure for it, follow **Apple's policies** and are handled through Apple. As a rule, we have no authority over refunds.
 7. **Price changes**: we may change prices in the future. Price changes for existing subscriptions follow the procedures Apple sets, including advance notice and consent where required.
+8. **Free trial**: the monthly Veiler Pro subscription may include a 7-day free trial for first-time subscribers. Unless cancelled at least 24 hours before the trial ends, it converts automatically into a paid subscription and the fee is charged. Nothing is charged if you cancel during the trial. Whether a trial is offered, and on what terms, may change without notice.
 
 ## 4. Prohibited conduct
 

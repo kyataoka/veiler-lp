@@ -9,7 +9,7 @@ alt_label: 日本語
 # Veiler Privacy Policy
 
 **Effective: 15 July 2026**
-**Last revised: 16 August 2026**
+**Last revised: 21 August 2026**
 
 This Privacy Policy (the "Policy") describes how Hiroki Kataoka ("we", "us") handles user information in the iOS application "Veiler" (the "App"). Please read it before using the App.
 
@@ -65,6 +65,16 @@ Your choices about advertising are as follows.
 - If you choose "Ask App Not to Track" at the iOS prompt, the IDFA is not used. You can change this at any time under iOS Settings > Privacy & Security > Tracking.
 - On the paid "Veiler Pro" plan, no advertising is displayed, the ad SDK is not initialised, and no information is sent for the delivery of advertising.
 
+### 2.4 Usage records (measurement for improving the App)
+
+The App records which of its features are used (for example, that an import completed, or that the settings screen was opened), using a fixed set of event names only. This is sent using Google Analytics for Firebase and Firebase Crashlytics (both Google LLC, USA). If the App fails to work correctly, the kind of failure and where in the program it occurred are recorded as well.
+
+Nothing from inside a vault is ever sent — no file names, no album names, no counts. These records are not linked to anything that identifies you, nor to the advertising identifier (IDFA). You can stop this recording at any time from the App's settings ("Share usage data", under About).
+
+### 2.5 Feedback submissions
+
+When you write in through the App's feedback screen, what is sent is the text you wrote plus the app version, iOS version and device model — nothing else. Because nothing identifies you, we cannot reply. Submissions are stored in Google Cloud Firestore (Google LLC, USA).
+
 ## 3. Why we use it
 
 We use the purchase-related information described in 2.2 only for the following purposes.
@@ -85,6 +95,7 @@ We engage the following providers to process information for the purposes of the
 - Apple Inc. (App Store / In-App Purchase): payment processing, and the provision, renewal and cancellation of subscriptions. Information handled: purchase and billing information (payment details are held by Apple and are not received by us).
 - RevenueCat, Inc.: managing subscription state and restoring purchases. Information handled: the purchase history, anonymous user ID and device information described in 2.2.
 - Google LLC (Google AdMob): delivering and measuring advertising on the free plan. Information handled: the device identifiers, approximate location, device information and advertising usage described in 2.3. Google handles this independently under its own privacy policy, for advertising by itself and by its advertising partners.
+- Google LLC (Firebase: Google Analytics / Crashlytics / Cloud Firestore): aggregating the usage and failure records described in 2.4, and storing the feedback described in 2.5.
 
 The servers of these providers may be located outside Japan, including in the United States. They handle information under their own privacy policies and applicable law.
 
@@ -106,6 +117,7 @@ Copies uploaded to iCloud, on the other hand, are always encrypted. This is a me
 - Viewing and taking your data out: what you have stored can be exported at any time through the App's export feature and the OS share sheet.
 - Deleting data: items can be deleted individually in the App, and deleting the App from your device removes all of the App's data on that device.
 - Deleting the copy in iCloud: the encrypted copy of a vault with iCloud sync switched on can be erased under iOS Settings > (your name) > iCloud > Manage Account Storage, by selecting Veiler and deleting its data. Uninstalling the App alone does not erase it. If anything is unclear, contact us at the address in section 1.
+- Usage records: the records described in 2.4 can be switched off at any time in the App's settings ("Share usage data", under About).
 - Advertising: you can limit the use of information for advertising by the means described in 2.3 — changing the iOS tracking setting, your choice at the consent screen in covered regions, or purchasing Veiler Pro.
 - How the bin behaves: deleted items are held in the bin for a period that depends on your plan (up to 30 days on Veiler Pro) before being permanently deleted. On the free plan, deletion takes effect immediately. Data in the bin is also lost if you delete the App.
 - Purchase information: you can review and manage your billing and purchase history through your Apple App Store account settings and, where needed, via the contact address in section 1.

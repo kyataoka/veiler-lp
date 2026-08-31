@@ -5,9 +5,9 @@ GitHub Pages がそのまま公開している。
 
 |  | 日本語 | English |
 | --- | --- | --- |
-| 紹介ページ | [/](https://kyataoka.github.io/veiler-legal/) | [/en/](https://kyataoka.github.io/veiler-legal/en/) |
-| プライバシーポリシー | [/privacy/ja/](https://kyataoka.github.io/veiler-legal/privacy/ja/) | [/privacy/en/](https://kyataoka.github.io/veiler-legal/privacy/en/) |
-| 利用規約 | [/terms/ja/](https://kyataoka.github.io/veiler-legal/terms/ja/) | [/terms/en/](https://kyataoka.github.io/veiler-legal/terms/en/) |
+| 紹介ページ | [/](https://veiler.kyatatata.com/) | [/en/](https://veiler.kyatatata.com/en/) |
+| プライバシーポリシー | [/privacy/ja/](https://veiler.kyatatata.com/privacy/ja/) | [/privacy/en/](https://veiler.kyatatata.com/privacy/en/) |
+| 利用規約 | [/terms/ja/](https://veiler.kyatatata.com/terms/ja/) | [/terms/en/](https://veiler.kyatatata.com/terms/en/) |
 
 ## URL は動かせない
 

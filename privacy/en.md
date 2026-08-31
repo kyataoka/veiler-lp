@@ -9,11 +9,11 @@ alt_label: 日本語
 # Veiler Privacy Policy
 
 **Effective: 15 July 2026**
-**Last revised: 21 August 2026**
+**Last revised: 1 September 2026**
 
 This Privacy Policy (the "Policy") describes how Hiroki Kataoka ("we", "us") handles user information in the iOS application "Veiler" (the "App"). Please read it before using the App.
 
-The App keeps photos, videos and documents on your device and locks them behind a passcode or biometrics (Face ID and similar). It requires no account, and we operate no server or database of our own for it. What you store stays on your device. For vaults with iCloud sync switched on under the paid "Veiler Pro" plan, an encrypted copy is also kept in your own iCloud (see section 5). On the free plan, the App displays advertising (see section 2.3).
+The App keeps photos and videos on your device and locks them behind a passcode or biometrics (Face ID and similar). It requires no account, and we operate no server that holds what you store. What you store stays on your device. For vaults with iCloud sync switched on under the paid "Veiler Pro" plan, an encrypted copy is also kept in your own iCloud (see section 5). On the free plan, the App displays advertising (see section 2.3).
 
 > This Policy is a translation provided for convenience. The Japanese version is the original and governs in the event of any discrepancy: [プライバシーポリシー](../ja/).
 
@@ -29,15 +29,15 @@ We are an independent developer and provide the App as a personal development ac
 
 ### 2.1 What you store — never sent to us
 
-The App stores the photos, videos and documents you keep in it, together with their titles, albums and other organising information, on your device. We operate no server for the App, and none of this is ever sent to us.
+The App stores the photos and videos you keep in it, together with their titles, albums and other organising information, on your device. We operate no server for the App, and none of this is ever sent to us.
 
-Only for vaults where you have switched iCloud sync on under the paid "Veiler Pro" plan, an encrypted copy of their contents (photos, videos and documents, and their titles, albums and other organising information) is stored in the App's own area of the iCloud account tied to your Apple ID. Sync is chosen by you, per vault, and is off by default. See section 5.
+Only for vaults where you have switched iCloud sync on under the paid "Veiler Pro" plan, an encrypted copy of their contents (photos and videos, and their titles, albums and other organising information) is stored in the App's own area of the iCloud account tied to your Apple ID. Sync is chosen by you, per vault, and is off by default. See section 5.
 
-We include no analytics SDK and no crash-reporting SDK in the App, and we neither collect nor hold any record of what you view or what you do inside it. The App does use an SDK for managing purchases (2.2) and an SDK for displaying advertising on the free plan (2.3); what those providers collect under their own terms is described in each section.
+We never collect or hold what is inside a vault — the photos and videos themselves, their filenames, album names, or how many there are. The App does use the SDK for billing (2.2), the SDK for advertising on the free plan (2.3), the SDKs for usage records and crash information (2.4), and the SDK for sending feedback (2.5). For what each provider obtains under its own terms, see the relevant section.
 
 ### 2.2 Exception — subscription purchases
 
-Only when you buy or restore the paid "Veiler Pro" plan, the App uses the SDK of a third-party service, RevenueCat (RevenueCat, Inc.), to manage the purchase. The following is then sent to and held on RevenueCat's servers.
+The App uses the SDK of a third-party service, RevenueCat (RevenueCat, Inc.), to manage purchases. It is initialised when the App starts and asks RevenueCat which plan you are on, whether or not you have bought anything. The following is sent to and held by RevenueCat:
 
 - Purchase history: receipts from Apple's In-App Purchase, and the state of purchases, cancellations and trials
 - An anonymous app user ID the App uses to associate a purchase state (it is not linked to your name, email address or anything else that identifies you directly)
@@ -57,7 +57,7 @@ The free plan displays advertising in the App. Advertising is delivered using th
 
 Google handles this under its own privacy policy, and may use it for delivering and measuring advertising and for personalised advertising by Google and its advertising partners. See Google's privacy policy (<https://policies.google.com/privacy>) and "How Google uses information from sites or apps that use our services" (<https://policies.google.com/technologies/partner-sites>).
 
-**The advertising SDK does not read the photos, videos or documents you keep in the App, nor their titles or album names.** What we receive about advertising is aggregate figures only — impressions, revenue and the like — never anything that identifies an individual user to us.
+**The advertising SDK does not read the photos or videos you keep in the App, nor their titles or album names.** What we receive about advertising is aggregate figures only — impressions, revenue and the like — never anything that identifies an individual user to us.
 
 Your choices about advertising are as follows.
 
@@ -101,21 +101,21 @@ The servers of these providers may be located outside Japan, including in the Un
 
 ## 5. Where data is kept, and for how long
 
-- The photos, videos and documents you keep in the App, and their organising information, are stored on your device, in the App's own storage area. They are not stored on any server of ours.
+- The photos and videos you keep in the App, and their organising information, are stored on your device, in the App's own storage area. They are not stored on any server of ours.
 - For vaults with iCloud sync switched on (Veiler Pro), an encrypted copy is stored in the App's own container within the iCloud account tied to your Apple ID. The destination is your own iCloud; we neither obtain nor view its contents. This copy is kept until you delete it.
 - Data stored on the device is excluded from device backups, including iCloud Backup and backups to a computer. The contents of a vault are not duplicated into a backup of your device.
-- Deleting (uninstalling) the App removes all of the App's data stored on the device. The encrypted copy of any vault that had iCloud sync switched on does, however, remain in your iCloud after uninstalling, so that it can be restored when you reinstall and sign in with the same Apple ID. Section 6 explains how to delete it.
+- Deleting (uninstalling) the App removes the vault contents stored on the device. Because of how iOS works, a vault's key material may remain in the keychain; it is discarded the first time the App is launched again on the same device. The encrypted copy of any vault that had iCloud sync switched on stays in your iCloud after uninstalling, so that it can be restored when you reinstall and sign in with the same Apple ID. See 6. for how to remove it.
 - The purchase-related information in 2.2 is retained by Apple and RevenueCat for as long as is necessary to manage and restore purchases.
 - The retention period for the advertising-related information in 2.3 is determined by Google.
 
 On protection: the current version of the App does not encrypt files on the device with its own encryption. It stores them in a dedicated area, behind the App's passcode and biometric lock, and relies on the standard device protection iOS provides, such as protection by the device passcode. For stronger protection, set a passcode on the device itself.
 
-Copies uploaded to iCloud, on the other hand, are always encrypted. This is a measure to avoid placing unencrypted files in the cloud; it is not a guarantee that the contents are concealed from anyone able to access your iCloud account.
+The contents of files uploaded to iCloud, on the other hand, are always encrypted. However, so that a vault can be restored after changing phones or reinstalling, the key needed to decrypt them is stored unencrypted in the same iCloud area. This encryption therefore does not guarantee that the contents are hidden from someone with access to your iCloud account.
 
 ## 6. Your rights and choices
 
 - Viewing and taking your data out: what you have stored can be exported at any time through the App's export feature and the OS share sheet.
-- Deleting data: items can be deleted individually in the App, and deleting the App from your device removes all of the App's data on that device.
+- Deleting data: items can be deleted individually in the App, and deleting the App from your device removes the vault contents stored on it (see 5. for the key material that may remain in the keychain).
 - Deleting the copy in iCloud: the encrypted copy of a vault with iCloud sync switched on can be erased under iOS Settings > (your name) > iCloud > Manage Account Storage, by selecting Veiler and deleting its data. Uninstalling the App alone does not erase it. If anything is unclear, contact us at the address in section 1.
 - Usage records: the records described in 2.4 can be switched off at any time in the App's settings ("Share usage data", under About).
 - Advertising: you can limit the use of information for advertising by the means described in 2.3 — changing the iOS tracking setting, your choice at the consent screen in covered regions, or purchasing Veiler Pro.

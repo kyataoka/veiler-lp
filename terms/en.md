@@ -9,7 +9,7 @@ alt_label: 日本語
 # Veiler Terms of Service
 
 **Effective: 16 August 2026**
-**Last revised: 31 August 2026**
+**Last revised: 1 September 2026**
 
 These Terms of Service (the "Terms") set out the conditions for using the iOS application "Veiler" (the "App") provided by Hiroki Kataoka ("we", "us"). You are asked to agree to these Terms when you first launch the App. If you do not agree, you cannot use the App.
 
@@ -20,11 +20,11 @@ These Terms of Service (the "Terms") set out the conditions for using the iOS ap
 1. These Terms apply to every aspect of the relationship between us and you in connection with the App.
 2. How the App handles privacy is governed by the separate "Veiler Privacy Policy", which forms part of these Terms.
 3. Use of the App obtained through the App Store is also subject to Apple's "Apple Media Services Terms and Conditions" and Apple's standard End User License Agreement (EULA). Where these Terms conflict with those, Apple's terms prevail as regards the use of that service.
-4. The App asks you to agree to these Terms and to the Privacy Policy when it is first launched. If you agree, the fact of your agreement and the revision date of the Terms you agreed to are recorded on your device only. We do not obtain that record.
+4. The App asks you to agree to these Terms and to the Privacy Policy when it is first launched. If you agree, the revision date of the Terms you agreed to is recorded on your device. That record is never sent to us. The fact that agreement took place may, however, appear as an anonymous aggregate in the usage records described in section 2.4 of the Privacy Policy.
 
 ## 2. What the App is
 
-The App keeps photos, videos and documents on your device and provides locking by passcode and biometrics, organisation into albums, and export and sharing. We operate no server of our own to hold what you store; your data is kept on your device.
+The App keeps photos and videos on your device and provides locking by passcode and biometrics, organisation into albums, and export and sharing. We operate no server of our own to hold what you store; your data is kept on your device.
 
 The paid "Veiler Pro" plan allows iCloud sync to be enabled per vault. Where it is enabled, the contents of that vault are encrypted and stored in the App's own area of the iCloud account tied to your Apple ID. Sync is off by default, and you choose whether to enable it for each vault.
 
@@ -32,15 +32,17 @@ The free plan displays advertising in the App. How information is handled in con
 
 ## 3. Fees and subscriptions (auto-renewing)
 
-1. In addition to the features available free of charge, the App offers a paid plan, **Veiler Pro**. Veiler Pro adds iCloud sync, removal of advertising, multiple vaults, hiding a vault from the list, removal of the limits on albums and items, a log of failed access attempts, shake to lock, video playback speed and looping, and a 30-day bin.
-2. Veiler Pro is an **auto-renewing subscription through Apple's In-App Purchase**. Prices are as displayed on the App Store.
+1. In addition to the features available free of charge, the App offers the following paid plans.
+   - **Veiler Pro**: iCloud sync, removal of advertising, more than one vault, hiding a vault from the list, no cap on albums or items, the access log, shake to lock, video speed and looping, a 30-day trash, and other additional features. It is sold as a **monthly or yearly auto-renewing subscription**, or as a **one-time purchase (Veiler Lifetime)**.
+   - **Ad-free**: a **monthly auto-renewing subscription** that removes the advertising and nothing else. The caps on vaults, stored items and albums, and the absence of iCloud sync, are the same as on the free plan.
+2. Every plan is sold through **Apple's In-App Purchase**. Prices are as displayed on the App Store. The monthly and yearly plans and the ad-free plan are **auto-renewing subscriptions**, to which 3 to 5 and 7 below apply. **The one-time purchase (Veiler Lifetime) does not renew** and does not expire.
 3. **Automatic renewal**: unless auto-renewal is switched off at least 24 hours before the end of the current period, the subscription renews automatically and the same amount is charged. The renewal charge is made within the 24 hours before the end of the current period.
 4. **Cancellation**: you cancel a subscription (switch off auto-renewal) yourself, from your device's **App Store account settings**. We cannot cancel on your behalf. After cancelling, paid features remain available until the end of the billing period that has already begun.
 5. **Restoring purchases**: when you change device or reinstall, the App's "Restore purchases" feature restores purchases made with the same Apple ID.
 6. **Refunds**: payment is processed by Apple. Whether a refund is available, and the procedure for it, follow **Apple's policies** and are handled through Apple. As a rule, we have no authority over refunds.
 7. **Price changes**: we may change prices in the future. Price changes for existing subscriptions follow the procedures Apple sets, including advance notice and consent where required.
 8. **Free trial**: the monthly Veiler Pro subscription may include a 7-day free trial for first-time subscribers. Unless cancelled at least 24 hours before the trial ends, it converts automatically into a paid subscription and the fee is charged. Nothing is charged if you cancel during the trial. Whether a trial is offered, and on what terms, may change without notice.
-9. **After Veiler Pro ends**: when a subscription ends and the device holds more than one vault, you choose the one vault to keep using on the free plan. The vaults you do not choose can only be exported in full, deleted, or locked. Their contents are kept intact unless you delete them, and returning to Veiler Pro makes them fully usable again.
+9. **After a subscription ends**: when a subscription ends and you move to the free plan (the one-time Veiler Lifetime purchase does not end) and the device holds more than one vault, you choose the one vault to keep using. The vaults you do not choose can only be exported in full, deleted, or locked. Their contents are kept intact unless you delete them, and returning to Veiler Pro makes them fully usable again.
 
 ## 4. Prohibited conduct
 

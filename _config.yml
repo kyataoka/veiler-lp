@@ -3,8 +3,16 @@ description: Veiler の紹介ページと、プライバシーポリシー・利
 # The URLs the app and App Store Connect point at. Changing either of these
 # breaks a link that ships inside a released binary, so they are pinned by the
 # permalinks in each document rather than derived from file paths.
-baseurl: /veiler-legal
-url: https://kyataoka.github.io
+#
+# The custom domain in CNAME is what lets this repository be renamed at all.
+# GitHub does not redirect project-site URLs when a repository is renamed, so
+# the site's address has to stop depending on the repository's name first. With
+# baseurl empty, kyataoka.github.io/veiler-legal/privacy/ja/ redirects to
+# veiler.kyatatata.com/privacy/ja/ — the repository segment is dropped and the
+# rest of the path is kept, which is what keeps already-installed copies of the
+# app able to open their own privacy policy.
+baseurl: ""
+url: https://veiler.kyatatata.com
 defaults:
   - scope:
       path: ""

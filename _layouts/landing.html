@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="{{ page.lang | default: 'ja' }}" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title }} — {{ page.tagline }}</title>
+<meta name="description" content="{{ page.description }}">
+<link rel="icon" href="{{ '/assets/icon.png' | relative_url }}">
+<meta property="og:title" content="{{ page.title }} — {{ page.tagline }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:image" content="{{ '/assets/icon.png' | absolute_url }}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="{% if page.lang == 'en' %}en_US{% else %}ja_JP{% endif %}">
+<link rel="canonical" href="{{ page.permalink | absolute_url }}">
+<link rel="alternate" hreflang="ja" href="{{ '/' | absolute_url }}">
+<link rel="alternate" hreflang="en" href="{{ '/en/' | absolute_url }}">
+<link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}">
+<script>
+  // Runs before the first paint, so a remembered choice never shows as a
+  // flash of the other theme. The page is entirely usable if it never runs.
+  (function () {
+    var r = document.documentElement;
+    r.classList.remove('no-js');
+    try {
+      var t = localStorage.getItem('veiler-theme');
+      if (t === 'dark' || t === 'light') r.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+<style>
+  /* Three states, not two: the system preference is the default, and an
+     explicit choice has to beat it in BOTH directions — hence the
+     :not([data-theme="light"]) guard on the media query.
+
+     Images are the exception the legal pages do not make: a vault app is
+     judged on what its screens look like. No fonts, no third-party anything. */
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f6f8;
+    --fg: #14141a;
+    --muted: #62626b;
+    --rule: #e4e4e8;
+    --link: #3f4ec4;
+    --accent: #4d5ae0;
+    --shadow: 0 18px 40px rgba(20, 20, 40, .13);
+    --band: #f2f2f6;
+    --band-fg: #14141a;
+    --band-muted: #62626b;
+    --halo: #dcdcf5;
+    --shot-border: rgba(0, 0, 0, .10);
+    --shot-shadow: 0 18px 40px rgba(20, 20, 40, .16);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b0b0f;
+      --surface: #17171f;
+      --fg: #ececf1;
+      --muted: #9494a0;
+      --rule: #26262f;
+      --link: #9aa5f2;
+      --accent: #7b86ec;
+      --shadow: 0 18px 44px rgba(0, 0, 0, .55);
+      --band: #0b0b0f;
+      --band-fg: #f2f2f7;
+      --band-muted: #9a9aab;
+      --halo: #2b2c66;
+      --shot-border: rgba(255, 255, 255, .12);
+      --shot-shadow: 0 18px 44px rgba(0, 0, 0, .5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0b0f;
+    --surface: #17171f;
+    --fg: #ececf1;
+    --muted: #9494a0;
+    --rule: #26262f;
+    --link: #9aa5f2;
+    --accent: #7b86ec;
+    --shadow: 0 18px 44px rgba(0, 0, 0, .55);
+    --band: #0b0b0f;
+    --band-fg: #f2f2f7;
+    --band-muted: #9a9aab;
+    --halo: #2b2c66;
+    --shot-border: rgba(255, 255, 255, .12);
+    --shot-shadow: 0 18px 44px rgba(0, 0, 0, .5);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+      "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo,
+      system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.85;
+  }
+  a { color: var(--link); }
+  .wrap { max-width: 48rem; margin: 0 auto; padding: 0 1.25rem; }
+
+  /* ---- header controls --------------------------------------------------- */
+  .bar {
+    max-width: 60rem; margin: 0 auto; padding: .9rem 1.25rem 0;
+    display: flex; justify-content: flex-end; gap: .5rem;
+  }
+  .bar a, .bar button {
+    display: inline-flex; align-items: center; gap: .38rem;
+    padding: .34rem .85rem; border-radius: 999px;
+    border: 1px solid var(--shot-border);
+    background: transparent;
+    color: var(--band-fg); text-decoration: none;
+    font: inherit; font-size: .82rem; font-weight: 600;
+    cursor: pointer;
+  }
+  .bar svg { opacity: .75; }
+  /* Icon only: the page itself already says which theme is on, so naming it
+     on the button repeated what the reader can see. */
+  .bar .theme-toggle { padding: .34rem .6rem; }
+  /* One button, two faces: the icon shows what a press would give you. */
+  .icon-dark { display: none; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .icon-light { display: none; }
+    :root:not([data-theme="light"]) .icon-dark { display: inline; }
+  }
+  :root[data-theme="dark"] .icon-light { display: none; }
+  :root[data-theme="dark"] .icon-dark { display: inline; }
+  /* A button that cannot work should not be offered. */
+  .no-js .theme-toggle { display: none; }
+
+  /* ---- the top band: follows the theme, screenshots included -------------- */
+  .topband {
+    background:
+      radial-gradient(1100px 520px at 50% -12%, var(--halo) 0%, transparent 64%),
+      var(--band);
+    color: var(--band-fg);
+  }
+  .hero { text-align: center; padding: 0 1.25rem 2.4rem; }
+  .hero .inner { padding-top: 2.6rem; }
+  .hero .icon {
+    width: 104px; height: 104px;
+    border-radius: 24px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    display: block; margin: 0 auto 1.5rem;
+  }
+  .hero h1 {
+    font-size: 2.6rem; letter-spacing: .04em; line-height: 1.15;
+    margin: 0 0 .6rem; font-weight: 700;
+  }
+  .hero .tagline {
+    font-size: 1.1rem; line-height: 1.75; margin: 0 auto 1.9rem;
+    max-width: 26rem; color: var(--band-muted);
+  }
+  .stores {
+    display: flex; gap: .75rem; justify-content: center;
+    align-items: center; flex-wrap: wrap; margin: 0;
+  }
+  .stores img { height: 52px; width: auto; display: block; }
+  /* Our own control, not Google's badge: their brand guidelines forbid
+     altering the artwork in any way, and a greyed-out Play badge for an app
+     that is not on Play would mislead besides. */
+  .stores .soon-btn {
+    height: 52px; min-width: 152px;
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0 1rem; border-radius: 9px;
+    border: 1px solid var(--shot-border);
+    color: var(--band-muted); font-size: .82rem; font-weight: 600;
+    line-height: 1.35; text-align: center; white-space: nowrap;
+    cursor: default; user-select: none;
+  }
+  .hero .soon {
+    margin: 1.4rem 0 0; font-size: .85rem; color: var(--band-muted);
+  }
+
+  /* ---- screenshots: both themes shipped, one shown ------------------------ */
+  .shots {
+    display: flex; gap: 1.1rem; justify-content: center;
+    padding: 0 1.25rem 3.4rem; margin: 0 auto; max-width: 60rem;
+    overflow-x: auto; scroll-snap-type: x proximity;
+  }
+  .shots figure { margin: 0; flex: 0 0 auto; scroll-snap-align: center; }
+  .shots img {
+    width: 208px; height: auto; display: block;
+    border-radius: 20px; border: 1px solid var(--shot-border);
+    box-shadow: var(--shot-shadow);
+  }
+  /* Not <picture>: its media query answers to the system only, so a manual
+     switch would leave the app's screens in the theme nobody chose. */
+  .shots .shot-dark { display: none; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .shots .shot-light { display: none; }
+    :root:not([data-theme="light"]) .shots .shot-dark { display: block; }
+  }
+  :root[data-theme="dark"] .shots .shot-light { display: none; }
+  :root[data-theme="dark"] .shots .shot-dark { display: block; }
+  .shots figcaption {
+    margin-top: .8rem; font-size: .8rem; color: var(--band-muted);
+    text-align: center;
+  }
+
+  /* ---- sections ---------------------------------------------------------- */
+  section { padding-top: 3.4rem; }
+  h2 {
+    font-size: 1.05rem; letter-spacing: .08em;
+    color: var(--muted); font-weight: 700;
+    margin: 0 0 1.25rem; padding-bottom: .6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 { font-size: 1rem; margin: 0 0 .3rem; }
+
+  /* Three claims, not a grid of twelve: the table below already enumerates
+     what the app can do, so this says what it is. No box — the boxed table
+     directly under it was competing for the same attention. */
+  .points { display: grid; gap: 2rem; }
+  .point { display: flex; gap: 1.1rem; align-items: flex-start; }
+  .point .badge-ico {
+    flex: 0 0 auto; width: 2.6rem; height: 2.6rem; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--surface); border: 1px solid var(--rule);
+    color: var(--accent);
+  }
+  .point h3 { font-size: 1.05rem; margin: .3rem 0 .45rem; }
+  .point p {
+    margin: 0; font-size: .92rem; line-height: 1.9; color: var(--muted);
+    max-width: 36rem;
+  }
+  .point p + p { margin-top: .5rem; font-size: .84rem; opacity: .85; }
+
+  /* ---- plan comparison --------------------------------------------------- */
+  .cmp-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .cmp {
+    border-collapse: collapse; width: 100%; min-width: 27rem;
+    font-size: .88rem;
+  }
+  .cmp th, .cmp td {
+    padding: .62rem .5rem; text-align: center;
+    border-bottom: 1px solid var(--rule);
+  }
+  .cmp thead th {
+    color: var(--muted); font-size: .8rem; font-weight: 700;
+    white-space: nowrap;
+  }
+  .cmp thead th.is-pro { color: var(--accent); }
+  .cmp th:first-child, .cmp td:first-child {
+    text-align: left; color: var(--fg); font-weight: 400;
+    white-space: normal;
+  }
+  .cmp td { color: var(--muted); }
+
+  /* ---- the accordion: a full-width row that opens under its own row -------
+     A cell cannot hold this without squeezing it into one column, so the
+     description gets a row of its own spanning the table. The row is always
+     in the layout; only its inner grid track animates, which is the one way
+     a table row expands smoothly. */
+  /* Plan columns are as wide as their widest word; the name column takes
+     what is left rather than the other way round. */
+  .cmp thead th:not(:first-child) { width: 5.4rem; }
+  .cmp tr.row { cursor: pointer; }
+  /* No rule between a row and its own description — they are one thing. The
+     line under the description separates it from the next row instead. */
+  .cmp tr.row th, .cmp tr.row td { border-bottom: 0; }
+  /* Leading, not trailing: a chevron after the words sits at a different
+     place on every row, because every label is a different length. In front
+     they line up, and the column reads as a list of things you can open. */
+  .cmp .lbl { display: inline-flex; align-items: center; gap: .5rem; }
+  .cmp .lbl::before {
+    content: ""; width: .36rem; height: .36rem; flex: 0 0 auto;
+    border-right: 1.5px solid var(--muted);
+    border-bottom: 1.5px solid var(--muted);
+    transform: translateX(-1px) rotate(-45deg);
+    transition: transform .22s ease;
+  }
+  .cmp tr.row.open .lbl::before { transform: translateY(-2px) rotate(45deg); }
+  .cmp tr.row:hover th, .cmp tr.row:focus-visible th { color: var(--accent); }
+  .cmp tr.det > td { padding: 0; border-bottom: 1px solid var(--rule); }
+  .cmp tr.det .panel {
+    display: grid; grid-template-rows: 0fr;
+    transition: grid-template-rows .24s ease;
+  }
+  .cmp tr.det.open .panel { grid-template-rows: 1fr; }
+  .cmp tr.det .panel > div { overflow: hidden; }
+  .cmp tr.det .pd {
+    display: flex; align-items: flex-start; gap: .65rem;
+    padding: .4rem .6rem 1.05rem;
+  }
+  .cmp tr.det .pd svg {
+    flex: 0 0 auto; margin-top: .34rem;
+    color: var(--accent); opacity: .85;
+  }
+  .cmp tr.det p {
+    margin: 0; max-width: 36rem;
+    font-size: .84rem; line-height: 1.8; color: var(--muted);
+    text-align: left;
+  }
+  /* Without script there is nothing to open them with, so they start open. */
+  .no-js .cmp .lbl::before { display: none; }
+  .no-js .cmp tr.det .panel { grid-template-rows: 1fr; }
+  @media (prefers-reduced-motion: reduce) {
+    .cmp tr.det .panel, .cmp .lbl::before { transition: none; }
+  }
+  .cmp td.yes { color: var(--accent); font-weight: 700; }
+  .cmp td.no { opacity: .35; }
+  .cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom: 0; }
+
+  /* ---- FAQ: the same open/close as the plan table, so it feels like one
+     page rather than two widgets. */
+  .qa { border-bottom: 1px solid var(--rule); }
+  .qa h3 { margin: 0; font-size: 1rem; }
+  .qa .q {
+    width: 100%; text-align: left; cursor: pointer;
+    background: transparent; border: 0; color: var(--fg);
+    font: inherit; font-size: .95rem; font-weight: 700;
+    padding: .95rem .1rem;
+  }
+  .qa .q:hover, .qa .q:focus-visible { color: var(--accent); }
+  /* Centred on the line, not pinned to its top: a hand-tuned offset drifts
+     the moment the font size or the line height changes. */
+  .qa .q .lbl { display: inline-flex; align-items: center; gap: .6rem; }
+  .qa .q .lbl::before {
+    content: ""; width: .36rem; height: .36rem; flex: 0 0 auto;
+    border-right: 1.5px solid var(--muted);
+    border-bottom: 1.5px solid var(--muted);
+    /* A square turned 45° carries its visual weight toward the point, so the
+       open state is lifted slightly to look centred rather than measure it. */
+    transform: translateX(-1px) rotate(-45deg);
+    transition: transform .22s ease;
+  }
+  .qa.open .q .lbl::before { transform: translateY(-2px) rotate(45deg); }
+  .qa .panel {
+    display: grid; grid-template-rows: 0fr;
+    transition: grid-template-rows .24s ease;
+  }
+  .qa.open .panel { grid-template-rows: 1fr; }
+  .qa .panel > div { overflow: hidden; }
+  .qa .panel p {
+    margin: 0; padding: 0 .1rem 1.1rem; max-width: 38rem;
+    font-size: .9rem; line-height: 1.85; color: var(--muted);
+  }
+  .no-js .qa .q .lbl::before { display: none; }
+  .no-js .qa .panel { grid-template-rows: 1fr; }
+  @media (prefers-reduced-motion: reduce) {
+    .qa .panel, .qa .q .lbl::before { transition: none; }
+  }
+
+  .cta-row { text-align: center; margin: 2.2rem 0 .6rem; }
+  .btn {
+    display: inline-block; text-decoration: none;
+    background: var(--accent); color: #fff; font-weight: 700;
+    padding: .8rem 2rem; border-radius: 999px; font-size: .95rem;
+  }
+
+  ul.links { list-style: none; padding: 0; margin: 0; }
+  ul.links li { margin: .45em 0; }
+  .note { color: var(--muted); font-size: .85rem; }
+
+  footer {
+    margin-top: 4rem; padding: 2rem 0 3.5rem;
+    border-top: 1px solid var(--rule);
+    color: var(--muted); font-size: .85rem;
+  }
+  footer p { margin: 0 0 1rem; }
+  footer p:last-child { margin-bottom: 0; }
+  footer .legal {
+    display: flex; flex-wrap: wrap; gap: .1rem .7rem;
+    align-items: center; font-size: .9rem;
+  }
+  footer .legal a { font-weight: 600; text-decoration: none; }
+  footer .legal a:hover { text-decoration: underline; }
+  footer .legal span { opacity: .45; }
+  footer .fineprint { font-size: .78rem; opacity: .8; max-width: 30rem; }
+</style>
+</head>
+<body>
+{{ content }}
+<div class="wrap">
+  <footer>
+    <p class="legal">
+    {% if page.lang == 'en' %}
+      <a href="{{ '/privacy/en/' | relative_url }}">Privacy Policy</a>
+      <span>·</span>
+      <a href="{{ '/terms/en/' | relative_url }}">Terms of Service</a>
+    {% else %}
+      <a href="{{ '/privacy/ja/' | relative_url }}">プライバシーポリシー</a>
+      <span>・</span>
+      <a href="{{ '/terms/ja/' | relative_url }}">利用規約</a>
+    {% endif %}
+    </p>
+    <p>Veiler — Hiroki Kataoka<br>
+    {% if page.lang == 'en' %}Contact{% else %}お問い合わせ{% endif %}:
+    <a href="mailto:kyataoka.deve@gmail.com">kyataoka.deve@gmail.com</a></p>
+    {% if page.lang == 'en' %}
+    <p class="fineprint">The Japanese versions are the originals and govern in
+    the event of any discrepancy.</p>
+    {% endif %}
+  </footer>
+</div>
+<script>
+  // Remembered per browser and shared with the legal pages, so the choice
+  // survives a tap on the privacy policy and back.
+  document.querySelectorAll('.qa .q').forEach(function (q) {
+    var qa = q.closest('.qa');
+    q.setAttribute('aria-expanded', 'false');
+    q.addEventListener('click', function () {
+      var open = qa.classList.toggle('open');
+      q.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
+  document.querySelectorAll('.cmp tr.row').forEach(function (row) {
+    var det = row.nextElementSibling;
+    if (!det || !det.classList.contains('det')) return;
+    row.setAttribute('role', 'button');
+    row.setAttribute('tabindex', '0');
+    row.setAttribute('aria-expanded', 'false');
+    function toggle() {
+      var open = row.classList.toggle('open');
+      det.classList.toggle('open', open);
+      row.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    row.addEventListener('click', toggle);
+    row.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
+
+  document.querySelectorAll('[data-theme-toggle]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var root = document.documentElement;
+      var now = root.getAttribute('data-theme');
+      if (!now) {
+        now = window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark' : 'light';
+      }
+      var next = now === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('veiler-theme', next); } catch (e) {}
+    });
+  });
+</script>
+</body>
+</html>

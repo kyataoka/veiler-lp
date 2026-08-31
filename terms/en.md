@@ -9,7 +9,7 @@ alt_label: 日本語
 # Veiler Terms of Service
 
 **Effective: 16 August 2026**
-**Last revised: 21 August 2026**
+**Last revised: 31 August 2026**
 
 These Terms of Service (the "Terms") set out the conditions for using the iOS application "Veiler" (the "App") provided by Hiroki Kataoka ("we", "us"). You are asked to agree to these Terms when you first launch the App. If you do not agree, you cannot use the App.
 
@@ -56,7 +56,7 @@ We do not monitor what is stored in the App and ordinarily cannot know its conte
 
 ## 5. Disclaimers (important notes about your data)
 
-1. **A forgotten passcode**: your passcode is yours to manage. We do not hold it and **cannot recover or reset it**. For a vault without iCloud sync enabled, forgetting the passcode means the data in that vault becomes inaccessible. For a vault that had iCloud sync enabled, signing in with the same Apple ID and restoring it may allow you to set a new passcode and use it again.
+1. **A forgotten passcode**: your passcode is yours to manage. We do not hold it and **cannot recover or reset it**. If you forget it, the data in that vault may become inaccessible.
 2. **Loss of data (important)**: **if any or all of your data (including stored photos, videos and documents and their organising information) is lost or corrupted in connection with your use of the App, we accept no liability whatsoever, except where caused by our wilful misconduct or gross negligence.** Preserving and backing up your data is your own responsibility.
 
    Loss or corruption may arise from causes such as the following, and this list is not exhaustive.

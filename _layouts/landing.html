@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ page.title }} — {{ page.tagline }}</title>
 <meta name="description" content="{{ page.description }}">
+{% comment %}
+  Google Search Console ownership. Google keeps re-reading this from the home
+  page, so the site loses its verification if the tag is removed.
+{% endcomment %}
+<meta name="google-site-verification" content="S8DktsSrrwo0ZpyBf9Jwq9-Flb-616fW8zP7E1csIL4">
 <link rel="icon" href="{{ '/assets/icon.png' | relative_url }}">
 <meta property="og:title" content="{{ page.title }} — {{ page.tagline }}">
 <meta property="og:description" content="{{ page.description }}">

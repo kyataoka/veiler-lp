@@ -20,3 +20,8 @@ defaults:
       layout: document
 exclude:
   - README.md
+# jekyll-sitemap also writes robots.txt, pointing crawlers at the sitemap. A
+# robots.txt committed to this repository replaces that generated file, so one
+# added later has to carry the `Sitemap:` line itself.
+plugins:
+  - jekyll-sitemap

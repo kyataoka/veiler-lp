@@ -9,7 +9,7 @@ alt_label: 日本語
 # Veiler Privacy Policy
 
 **Effective: 15 July 2026**
-**Last revised: 1 September 2026**
+**Last revised: 20 September 2026**
 
 This Privacy Policy (the "Policy") describes how Hiroki Kataoka ("we", "us") handles user information in the iOS application "Veiler" (the "App"). Please read it before using the App.
 
@@ -33,19 +33,15 @@ The App stores the photos and videos you keep in it, together with their titles,
 
 Only for vaults where you have switched iCloud sync on under the paid "Veiler Pro" plan, an encrypted copy of their contents (photos and videos, and their titles, albums and other organising information) is stored in the App's own area of the iCloud account tied to your Apple ID. Sync is chosen by you, per vault, and is off by default. See section 5.
 
-We never collect or hold what is inside a vault — the photos and videos themselves, their filenames, album names, or how many there are. The App does use the SDK for billing (2.2), the SDK for advertising on the free plan (2.3), the SDKs for usage records and crash information (2.4), and the SDK for sending feedback (2.5). For what each provider obtains under its own terms, see the relevant section.
+We never collect or hold what is inside a vault — the photos and videos themselves, their filenames, album names, or how many there are. The App does use the SDK for advertising on the free plan (2.3), the SDKs for usage records and crash information (2.4), and the SDK for sending feedback (2.5). For what each provider obtains under its own terms, see the relevant section. For purchases, see 2.2.
 
-### 2.2 Exception — subscription purchases
+### 2.2 Subscription purchases
 
-The App uses the SDK of a third-party service, RevenueCat (RevenueCat, Inc.), to manage purchases. It is initialised when the App starts and asks RevenueCat which plan you are on, whether or not you have bought anything. The following is sent to and held by RevenueCat:
+Purchases in the App are processed by Apple's In-App Purchase. What you have bought is read from the record Apple gives the device, through iOS's own StoreKit, and no third-party service is used to manage purchases. Neither receipts nor purchase history are sent to any server of ours or to a third party.
 
-- Purchase history: receipts from Apple's In-App Purchase, and the state of purchases, cancellations and trials
-- An anonymous app user ID the App uses to associate a purchase state (it is not linked to your name, email address or anything else that identifies you directly)
-- Device information incidental to processing the purchase (device type, OS version, approximate region)
+Payment itself is processed by Apple (the App Store). We do not receive your credit card number or any other payment details.
 
-This is used to provide the paid features, to restore purchases, and to prevent fraud. We do not use it for advertising or profiling. RevenueCat's handling of information is governed by its own privacy policy (<https://www.revenuecat.com/privacy/>).
-
-Payment itself is processed by Apple (the App Store). Neither we nor RevenueCat receive your credit card number or any other payment details.
+The fact that a purchase completed — a predefined event name only, with no amount, product name or receipt — is sent as part of the usage record described in 2.4.
 
 ### 2.3 Information related to advertising
 
@@ -93,7 +89,6 @@ We do not sell or rent the information we receive to third parties, and we do no
 We engage the following providers to process information for the purposes of the paid plan and advertising. They handle it within the scope we specify.
 
 - Apple Inc. (App Store / In-App Purchase): payment processing, and the provision, renewal and cancellation of subscriptions. Information handled: purchase and billing information (payment details are held by Apple and are not received by us).
-- RevenueCat, Inc.: managing subscription state and restoring purchases. Information handled: the purchase history, anonymous user ID and device information described in 2.2.
 - Google LLC (Google AdMob): delivering and measuring advertising on the free plan. Information handled: the device identifiers, approximate location, device information and advertising usage described in 2.3. Google handles this independently under its own privacy policy, for advertising by itself and by its advertising partners.
 - Google LLC (Firebase: Google Analytics / Crashlytics / Cloud Firestore): aggregating the usage and failure records described in 2.4, and storing the feedback described in 2.5.
 
@@ -105,7 +100,7 @@ The servers of these providers may be located outside Japan, including in the Un
 - For vaults with iCloud sync switched on (Veiler Pro), an encrypted copy is stored in the App's own container within the iCloud account tied to your Apple ID. The destination is your own iCloud; we neither obtain nor view its contents. This copy is kept until you delete it.
 - Data stored on the device is excluded from device backups, including iCloud Backup and backups to a computer. The contents of a vault are not duplicated into a backup of your device.
 - Deleting (uninstalling) the App removes the vault contents stored on the device. Because of how iOS works, a vault's key material may remain in the keychain; it is discarded the first time the App is launched again on the same device. The encrypted copy of any vault that had iCloud sync switched on stays in your iCloud after uninstalling, so that it can be restored when you reinstall and sign in with the same Apple ID. See 6. for how to remove it.
-- The purchase-related information in 2.2 is retained by Apple and RevenueCat for as long as is necessary to manage and restore purchases.
+- The purchase information in 2.2 is retained by Apple for as long as is necessary to manage and restore purchases.
 - The retention period for the advertising-related information in 2.3 is determined by Google.
 
 On protection: the current version of the App does not encrypt files on the device with its own encryption. It stores them in a dedicated area, behind the App's passcode and biometric lock, and relies on the standard device protection iOS provides, such as protection by the device passcode. For stronger protection, set a passcode on the device itself.

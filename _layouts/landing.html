@@ -192,13 +192,26 @@
   }
   /* Not <picture>: its media query answers to the system only, so a manual
      switch would leave the app's screens in the theme nobody chose. */
-  .shots .shot-dark { display: none; }
+  .shots .shot-dark, .ipad .shot-dark { display: none; }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .shots .shot-light { display: none; }
-    :root:not([data-theme="light"]) .shots .shot-dark { display: block; }
+    :root:not([data-theme="light"]) .shots .shot-light,
+    :root:not([data-theme="light"]) .ipad .shot-light { display: none; }
+    :root:not([data-theme="light"]) .shots .shot-dark,
+    :root:not([data-theme="light"]) .ipad .shot-dark { display: block; }
   }
-  :root[data-theme="dark"] .shots .shot-light { display: none; }
-  :root[data-theme="dark"] .shots .shot-dark { display: block; }
+  :root[data-theme="dark"] .shots .shot-light,
+  :root[data-theme="dark"] .ipad .shot-light { display: none; }
+  :root[data-theme="dark"] .shots .shot-dark,
+  :root[data-theme="dark"] .ipad .shot-dark { display: block; }
+
+  /* The one landscape picture on the page: wide, and the width of the text
+     rather than of a phone. */
+  .ipad { margin: 0 0 1.25rem; }
+  .ipad img {
+    width: 100%; height: auto; display: block;
+    border-radius: 14px; border: 1px solid var(--shot-border);
+    box-shadow: var(--shot-shadow);
+  }
   .shots figcaption {
     margin-top: .8rem; font-size: .8rem; color: var(--band-muted);
     text-align: center;

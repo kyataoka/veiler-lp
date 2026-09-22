@@ -7,10 +7,10 @@ description: Veiler の紹介ページと、プライバシーポリシー・利
 # The custom domain in CNAME is what lets this repository be renamed at all.
 # GitHub does not redirect project-site URLs when a repository is renamed, so
 # the site's address has to stop depending on the repository's name first. With
-# baseurl empty, kyataoka.github.io/veiler-legal/privacy/ja/ redirects to
+# baseurl empty, kyataoka.github.io/veiler-lp/privacy/ja/ redirects to
 # veiler.kyatatata.com/privacy/ja/ — the repository segment is dropped and the
-# rest of the path is kept, which is what keeps already-installed copies of the
-# app able to open their own privacy policy.
+# rest of the path is kept, so a link written against the repository's own
+# address still lands on the right page.
 baseurl: ""
 url: https://veiler.kyatatata.com
 defaults:

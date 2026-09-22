@@ -33,9 +33,7 @@ permalink をファイルパスから導出せず固定しているのは、こ�
 
 同じ理由から、サイトのアドレスはリポジトリ名から独立させています。GitHub は
 リポジトリ名を変更したとき、プロジェクトサイトの URL だけリダイレクトしないため
-（[Renaming a repository][rn]）、独自ドメインを割り当てています。旧アドレス
-`kyataoka.github.io/veiler-legal/` は
-[kyataoka/veiler-legal](https://github.com/kyataoka/veiler-legal) が転送します。
+（[Renaming a repository][rn]）、独自ドメインを割り当てています。
 
 [rn]: https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository
 
